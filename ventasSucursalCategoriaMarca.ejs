@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reporte de Ventas por Sucursal, Categoría y Marca</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #999; padding: 6px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+    <h1>Reporte de Ventas por Sucursal, Categoría y Marca</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Sucursal</th>
+                <th>Categoría</th>
+                <th>Marca</th>
+                <th>Fecha</th>
+                <th>Total Ítems</th>
+                <th>Total Ventas (Bs.)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(r => { %>
+                <tr>
+                    <td><%= r.sucursal %></td>
+                    <td><%= r.categoria %></td>
+                    <td><%= r.marca %></td>
+                    <td><%= r.fecha.toISOString().slice(0,10) %></td>
+                    <td><%= r.total_items %></td>
+                    <td><%= r.total_ventas %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

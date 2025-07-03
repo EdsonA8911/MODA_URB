@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking de Productos Más Vendidos</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Ranking de Productos Más Vendidos por Mes</h1>
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Año</th>
+                <th>Mes</th>
+                <th>Código Único</th>
+                <th>Producto</th>
+                <th>Unidades Vendidas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(r => { %>
+                <tr>
+                    <td><%= r.anio %></td>
+                    <td><%= r.mes %></td>
+                    <td><%= r.codigo_unico %></td>
+                    <td><%= r.producto %></td>
+                    <td><%= r.unidades_vendidas %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

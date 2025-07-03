@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock e Inventario</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Stock e Inventario</h1>
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Código Único</th>
+                <th>Producto</th>
+                <th>Talla</th>
+                <th>Color</th>
+                <th>Sucursal</th>
+                <th>Stock Actual</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(r => { %>
+                <tr>
+                    <td><%= r.codigo_unico %></td>
+                    <td><%= r.producto %></td>
+                    <td><%= r.talla || '-' %></td>
+                    <td><%= r.color || '-' %></td>
+                    <td><%= r.sucursal %></td>
+                    <td><%= r.stock_actual %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

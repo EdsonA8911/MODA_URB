@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comisiones por Vendedor</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Comisiones por Vendedor</h1>
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Sucursal</th>
+                <th>Turno</th>
+                <th>Fecha</th>
+                <th>Total Ventas (Bs.)</th>
+                <th>Comisión (Bs.)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(r => { %>
+                <tr>
+                    <td><%= r.nombre %></td>
+                    <td><%= r.apellido %></td>
+                    <td><%= r.sucursal %></td>
+                    <td><%= r.turno %></td>
+                    <td>
+                        <% if (r.fecha && r.fecha.toISOString) { %>
+                            <%= r.fecha.toISOString().slice(0,10) %>
+                        <% } else { %>
+                            <%= r.fecha %>
+                        <% } %>
+                    </td>
+                    <td><%= r.total_ventas %></td>
+                    <td><%= r.comision %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingresos Mensuales</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Ingresos Mensuales</h1>
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Mes</th>
+                <th>Canal</th>
+                <th>Método de Pago</th>
+                <th>Ingresos Totales (Bs.)</th>
+                <th>Ingresos por Promoción (Bs.)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(r => { %>
+                <tr>
+                    <td><%= r.mes %></td>
+                    <td><%= r.canal %></td>
+                    <td><%= r.metodo_pago || '-' %></td>
+                    <td><%= r.ingresos_totales %></td>
+                    <td><%= r.ingresos_promocion %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

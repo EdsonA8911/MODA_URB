@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos Pendientes y Entregas</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Pedidos Pendientes y Entregas</h1>
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>ID Pedido</th>
+                <th>Cliente</th>
+                <th>Estado</th>
+                <th>Canal</th>
+                <th>Fecha Creación</th>
+                <th>Fecha Pago</th>
+                <th>Método de Pago</th>
+                <th>Productos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(p => { %>
+                <tr>
+                    <td><%= p.id_pedido %></td>
+                    <td><%= p.cliente %> <%= p.apellido %></td>
+                    <td><%= p.estado %></td>
+                    <td><%= p.canal %></td>
+                    <td><%= (p.fecha_creacion ? p.fecha_creacion.toISOString ? p.fecha_creacion.toISOString().slice(0, 19).replace('T', ' ') : p.fecha_creacion : '') %></td>
+                    <td><%= (p.fecha_pago ? p.fecha_pago.toISOString ? p.fecha_pago.toISOString().slice(0, 19).replace('T', ' ') : p.fecha_pago : '') %></td>
+                    <td><%= p.metodo_pago || '-' %></td>
+                    <td><%= p.productos || '-' %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
